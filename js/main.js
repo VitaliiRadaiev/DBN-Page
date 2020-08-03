@@ -1123,6 +1123,7 @@ if (!isMobile.any()) {
 			let galleryDetailsM__prev = document.querySelector('.galleryDetails-m__prev');
 			let galleryDetailsM__next = document.querySelector('.galleryDetails-m__next');
 			let galleryBox = document.querySelector('.galleryDetails-m__gellery-box');
+			let mask = document.querySelector('.galleryDetails-m__mask');
 
 			if(galleryBox.children.length <= 1) {
 				galleryDetailsM__prev.style.display = 'none';
@@ -1186,6 +1187,13 @@ if (!isMobile.any()) {
 					item.classList.remove('focus');
 				}
 			}
+		});
+
+		window.addEventListener('resize', function(e) {
+			let width = mask.getBoundingClientRect().width;
+			let left= mask.getBoundingClientRect().left;
+			infoGalleryDetailsM.style.width = width + 'px';
+			infoGalleryDetailsM.style.left = left + 'px';
 		});
 
 		galleryDetailsM__next.addEventListener('click', function() {
